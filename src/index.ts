@@ -14,7 +14,8 @@ process.on("SIGTERM", handleSigTerm);
 
 const main = async () => {
   try {
-    const openFramesArt = await art.font("Open Frames", "doom").toPromise();
+    const openFramesArt  = await art.font("Open Frames", "Doom").toPromise();
+
     console.log(openFramesArt);
     console.log(`created by 🌳 ${chalk.green("https://builders.garden")}`);
 
@@ -29,7 +30,7 @@ const main = async () => {
     });
 
     const directory = await input({
-      message: "Enter the director where you want to create your Open Frame:",
+      message: "Enter the directory where you want to create your Open Frame:",
       default: "./",
     });
 
