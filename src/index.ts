@@ -29,7 +29,7 @@ const main = async () => {
     });
 
     const directory = await input({
-      message: "Enter the director where you want to create your Open Frame:",
+      message: "Enter the directory where you want to create your Open Frame:",
       default: "./",
     });
 
