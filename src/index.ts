@@ -14,7 +14,8 @@ process.on("SIGTERM", handleSigTerm);
 
 const main = async () => {
   try {
-    const openFramesArt = await art.font("Open Frames", "doom").toPromise();
+    const openFramesArt  = await art.font("Open Frames", "Doom").toPromise();
+
     console.log(openFramesArt);
     console.log(`created by 🌳 ${chalk.green("https://builders.garden")}`);
 
