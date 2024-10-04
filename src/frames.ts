@@ -49,11 +49,24 @@ const createFramesJsNextJs = (path: string) => {
     path,
   ]);
 
+  let stderrOutput = "";
+
+  execResult.stderr.on("data", (data) => {
+    stderrOutput += data.toString();
+  })
+
   execResult.on("exit", (code) => {
     spinner.stop();
-    console.log(
-      `${chalk.green(`Frames.js + Nextjs Open Frame created successfully! 🚀`)}`
-    );
+
+    if (code === 0) {
+      console.log(
+        `${chalk.green(`Frames.js + Nextjs Open Frame created successfully! 🚀`)}`
+      );
+    } else {
+      console.error(`${chalk.red('Error occurred while creating the app with open frames:')}`);
+      console.error(chalk.red(stderrOutput));
+    }
+
     process.exit(code);
   });
 };
